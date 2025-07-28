@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harry's Portfolio</title>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+  <!-- Typing Animation -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+/* ==== NAVBAR ==== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  color: black;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.2rem;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a,
+.nav-links button {
+  color: black  ;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* HIDE hamburger by default */
+.hamburger {
+  font-size: 24px;
+  display: none;
+  cursor: pointer;
+}
+
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+    /* Dark Mode Toggle */
+    .toggle-btn {
+      background: none;
+      border: 2px solid #000;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+      margin-left: 50px;
+    }
+
+    body.dark .toggle-btn {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      background-color: #e6f0fa;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-left: 100px;
+      color: #000;
+    }
+    h1.glow-title {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 15px #00c6ff;
+  }
+  50% {
+    text-shadow: 0 0 15px #007bff, 0 0 25px #00c6ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 15px #00c6ff;
+  }
+}
+
+
+    .hero-text span {
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .typing {
+      border-right: 2px solid #000;
+      display: inline-block;
+      animation: blink 0.7s step-end infinite;
+      font-size: 20px;
+      margin-left: 100px;
+      color: #000;
+    }
+    
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+
+    .hero-img img {
+      width: 350px;
+      border-radius: 20px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      z-index: 2;
+      
+    }
+       .hero-img {
+         position: relative;
+      
+     margin-top: 50px;
+  width: 350px;
+      height: 350px;
+      margin-right: 200px;
+       }
+      
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: row;
+        text-align: center;
+      }
+
+      .hero-img {
+        margin-right: 50px;
+      }
+
+      .cards {
+        flex-direction: row;
+      }
+       .hero-text h1 {
+      font-size: 1.8rem;
+      margin-left:40px;
+      color: #000;
+      
+    }
+    h1.glow-title {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+  .typing{
+    font-size: 12px;
+   
+    
+  }
+  .hero-img{
+        position: relative;
+      
+     margin-top: 50px;
+  width: 150px;
+      height: 150px;
+      
+  }
+    }
+    
+    
+    .circle-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #007BFF;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    strong{
+      font-size: 2rem;
+    }
+
+
+    /* About */
+   .about {
+  padding: 100px 5%;
+  text-align: center;
+  background: #f8f9fa;
+}
+
+body.dark .about {
+  background: #0d1117;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+.about-subtitle {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+body.dark .about-subtitle {
+  color: #aaa;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+body.dark .card {
+  background: #1c1c1c;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+body.dark .card p {
+  color: #ccc;
+}
+
+    /* Amazing */
+    .amazing {
+  padding: 100px 5%;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .amazing {
+  background: linear-gradient(135deg, #1e1e2f, #111);
+}
+
+.amazing-content {
+  max-width: 700px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+}
+
+.amazing h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.amazing h2 span {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.amazing p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  margin-bottom: 40px;
+}
+
+.cta-btn {
+  padding: 15px 35px;
+  background-color: #fff;
+  color: #007bff;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #ffd700;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Glowing heading animation */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #00c6ff, 0 0 30px #00c6ff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 40px #007bff, 0 0 60px #007bff;
+  }
+}
+
+
+    /* Contact */
+  .contact {
+  padding: 100px 5%;
+  text-align: center;
+  background: linear-gradient(to bottom right, #f0f8ff, #e0f0ff);
+}
+
+body.dark .contact {
+  background: linear-gradient(to bottom right, #0d1117, #1a1f25);
+}
+
+.contact-title {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+body.dark .contact-subtitle {
+  color: #aaa;
+}
+
+.contact-card {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 123, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.dark .contact-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border-radius: 12px;
+  border: none;
+  background: #ffffffdd;
+  font-size: 16px;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+body.dark .input-group input,
+body.dark .input-group textarea {
+  background: #1f1f1fdd;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.contact-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+}
+
+    /* styling project */
+    .projects {
+  padding: 100px 5%;
+  background: #f0faff;
+  text-align: center;
+}
+
+body.dark .projects {
+  background: #0d1117;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+.projects-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+body.dark .projects-subtitle {
+  color: #aaa;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.2);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+body.dark .card {
+  background: #1a1a1a;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .card p {
+  color: #ccc;
+}
+/* footer styling  */
+.footer {
+  background: #111;
+  color: #eee;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.footer-socials {
+  margin-bottom: 20px;
+}
+
+.footer-socials a {
+  color: #eee;
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #00ffd0; /* neon effect */
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="logo"><strong>Harry-X Solutions</strong></div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button onclick="toggleDarkMode()">🌙</button></li>
+  </ul>
+</nav>
+
+
+
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-text" data-aos="fade-right">
+      <h1 class="glow-title">Hi, I'm <span>Harry</span></h1>
+      <p class="typing" id="typing-text"></p>
+    </div>
+    <div class="hero-img" data-aos="zoom-in">
+      <div class="circle-bg"></div>
+      <img src="images/men.png" alt="Hero Image">
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+  <h2 data-aos="fade-up" class="about-title">🙋‍♂️ About Me</h2>
+  <p data-aos="fade-up" data-aos-delay="100" class="about-subtitle">
+    Here’s what I bring to the table! 💼
+  </p>
+
+  <div class="cards">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>💻 HTML & CSS Websites</h3>
+      <p>I build clean, modern and fully responsive websites.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3>🧠 Microsoft 365 Expert</h3>
+      <p>Skilled in Excel, Word, PowerPoint, Outlook & more.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <h3>🎨 Canva Design</h3>
+      <p>Creative poster, resume, social media & brand designs.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="400">
+      <h3>✍️ Article Writing</h3>
+      <p>Engaging, SEO-friendly blog & content writing skills.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Projects -->
+<section class="projects" id="projects">
+  <h2 data-aos="fade-up" class="projects-title">🚀 My Projects</h2>
+  <p data-aos="fade-up" data-aos-delay="100" class="projects-subtitle">
+    A glimpse of what I’ve built with passion and precision. 💡
+  </p>
+
+  <div class="cards">
+    <div class="card" data-aos="zoom-in-up" data-aos-delay="100">
+      <h3>🛒 E-commerce UI</h3>
+      <p>Modern shopping interface with product filters, carts and responsive grid layout.</p>
+    </div>
+    <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
+      <h3>📱 Portfolio Website</h3>
+      <p>Fully responsive personal portfolio site with dark mode and scroll animations.</p>
+    </div>
+    <div class="card" data-aos="zoom-in-up" data-aos-delay="300">
+      <h3>📝 Blog Design</h3>
+      <p>Clean and elegant blog layout with search, tags, and readable typography.</p>
+    </div>
+    <div class="card" data-aos="zoom-in-up" data-aos-delay="400">
+      <h3>📊 Dashboard UI</h3>
+      <p>Interactive analytics dashboard with charts, stats, and responsive cards.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Amazing Section -->
+  <section class="amazing" id="amazing" data-aos="zoom-in">
+  <div class="amazing-content">
+    <h2 data-aos="fade-up" data-aos-delay="100">✨ Let’s Build Something <span>Amazing</span> Together!</h2>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Open for exciting collaborations, freelance gigs, and fresh ideas 🚀
+    </p>
+    <a href="#contact" class="cta-btn" data-aos="zoom-in" data-aos-delay="300">Get In Touch</a>
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2 data-aos="fade-up" class="contact-title">📩 Let's Work Together</h2>
+  <p data-aos="fade-up" data-aos-delay="100" class="contact-subtitle">
+    I’d love to hear about your project or just say hello. 🚀
+  </p>
+
+  <div class="contact-card" data-aos="zoom-in-up">
+   <form class="contact-form" onsubmit="openGmail(event)">
+
+  <div class="input-group" data-aos="fade-right" data-aos-delay="100">
+    <span class="icon">👤</span>
+    <input type="text" id="name" placeholder="Your Name" required />
+  </div>
+  <div class="input-group" data-aos="fade-right" data-aos-delay="200">
+    <span class="icon">📧</span>
+    <input type="email" id="email" placeholder="Your Email" required />
+  </div>
+  <div class="input-group" data-aos="fade-right" data-aos-delay="300">
+    <span class="icon">💬</span>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+  </div>
+  <button type="submit" class="contact-button" data-aos="fade-up" data-aos-delay="400">
+    Send Message ✨
+  </button>
+</form>
+
+  </div>
+</section>
+<footer class="footer" id="footer" data-aos="fade-up">
+  <div class="footer-content">
+    <h3 class="footer-title">🚀 Harry-X Solutions</h3>
+    <p class="footer-tagline">Turning Ideas into Digital Reality ✨</p>
+
+    <div class="footer-socials" data-aos="zoom-in" data-aos-delay="200">
+      <a href="https://www.instagram.com/harry.xsolutions/" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.fiverr.com/harryxsolutions" target="_blank" title="Fiverr">
+        <i class="fas fa-briefcase"></i>
+      </a>
+    </div>
+
+    <p class="footer-copy" data-aos="fade-up" data-aos-delay="400">
+      © 2025 N-X Solutions. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <!-- Typing Animation JS -->
+  <script>
+    const phrases = ["Front-End Developer", "UI/UX Designer", "Freelancer", "Creative Coder"];
+    const el = document.getElementById("typing-text");
+    let i = 0, j = 0, current = "", isDeleting = false;
+
+    function type() {
+      current = phrases[i];
+      if (isDeleting) {
+        el.innerText = current.substring(0, j--);
+        if (j < 0) {
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      } else {
+        el.innerText = current.substring(0, j++);
+        if (j > current.length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+          return;
+        }
+      }
+      setTimeout(type, isDeleting ? 40 : 80);
+    }
+    type();
+  </script>
+
+  <!-- Dark Mode Toggle -->
+  <script>
+    
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+  <script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("show");
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  }
+</script>
+
+ <script>
+  function openGmail(event) {
+    event.preventDefault(); // Prevent page reload
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("New Message from Website");
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    // This opens Gmail compose window
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=harryx.solutions@gmail.com&su=${subject}&body=${body}`;
+
+    // Open in new tab
+    window.open(gmailURL, '_blank');
+    
+  }
+</script>
+
+
+</body>
+</html>
